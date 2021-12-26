@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assignment 1</title>
+    <style>
+        .cont {
+          font-family: arial;
+          font-size: 24px;
+          margin: 30px;
+          width: 400px;
+          height: 100px;
+        }
+        .btn-bg {
+            background-color: #12F05B;
+        }
+        .btn-fg {
+            width:  200px;
+            height: 50px;
+            margin:  10px;
+            padding:  10px 10px;
+        }
+        body {
+            background-color: #38ff98;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Select your choice
+    </h1>
+
+    <div class="cont">
+    <form action='/get_teacher_all' method="POST">
+        <input type="submit" value="Get all teachers list" class="button btn-bg btn-fg" />
+    </form>
+    </div>
+
+    <div class="cont">
+    <form action='/get_teacher_specific' method="POST">
+        <input type="text" name="student_id" placeholder="Enter studentID" />
+        <input type="submit" value="Get all teachers by studentID" class="button btn-bg btn-fg" />
+    </form>
+    </div>
+
+    <div class="cont">
+    <form action='/get_student_specific' method="POST">
+        <input type="text" name="teacher_id" placeholder="Enter teacherID" />
+        <input type="submit" value="Get all students by teacherID" class="button btn-bg btn-fg" />
+    </form>
+    </div>
+
+    <div class="cont">
+    <form action='/download_certificate' method="POST">
+        <input type="text" name="teacher_id" placeholder="Enter teacherID" />
+        <input type="text" name="student_id" placeholder="Enter studentID" />
+        <input type="submit" value="Download Certificate" class="button btn-bg btn-fg" />
+    </form>
+    </div>
+
+    {% if message %}
+    <h1>{{message}}</h1>
+    {% endif %}
+    {% if result_list %}
+    {% for entry in result_list %}
+    <div class="cont">
+        {{entry}}
+    </div>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>

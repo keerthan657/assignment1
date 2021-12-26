@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Certificate</title>
+    <style>
+        .cont {
+          font-family: arial;
+          font-size: 24px;
+          margin: 30px;
+          width: 400px;
+          height: 100px;
+        }
+        .btn-bg {
+            background-color: #12F05B;
+        }
+        .btn-fg {
+            width:  200px;
+            height: 50px;
+            margin:  10px;
+            padding:  10px 10px;
+        }
+        body {
+            background-color: #38ff98;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        {{body1}}
+    </h1>
+    <br>
+    {% if body2_list %}
+    {% for entry in body2_list %}
+    <h1>
+        {{entry}}
+    </h1>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>
